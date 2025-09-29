@@ -4,7 +4,7 @@
 This repository contains Ansible configuration to install the `vim-enhanced` package on all application servers in the Stratos Datacenter for the Nautilus Application development team.
 
 ## Prerequisites
-- Ansible installed on jump host
+- Ansible installed on jump host 
 - SSH access to all app servers from jump host
 - User `thor` should have sudo privileges on jump host
 - Proper SSH key configuration for app server access
