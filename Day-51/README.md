@@ -1,6 +1,3 @@
-Got it! Here's a polished **README.md** version in Markdown style suitable for GitHub or documentation:
-
-````markdown
 # Nginx Load Balancer Setup on Nautilus Infrastructure
 
 ## Overview
