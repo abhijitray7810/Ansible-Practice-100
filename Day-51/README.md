@@ -170,10 +170,3 @@ for i in {1..10}; do curl http://stlb01; done
 **xFusionCorp Industries – Nautilus DC Lab**
 
 ```
-
----
-
-If you want, I can also make a **shorter version with badges and GitHub style headers** for a cleaner GitHub repo appearance.  
-
-Do you want me to do that?
-```
