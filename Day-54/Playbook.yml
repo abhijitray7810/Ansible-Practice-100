@@ -1,0 +1,37 @@
+---
+- name: Extract devops.zip on app servers
+  hosts: all
+  become: true
+  tasks:
+    - name: Install unzip package
+      yum:
+        name: unzip
+        state: present
+      register: yum_result
+      failed_when: yum_result.rc != 0 and yum_result.rc != 137
+      ignore_errors: yes
+
+    - name: Create directory /opt/sysops
+      file:
+        path: /opt/sysops
+        state: directory
+        owner: "{{ ansible_user }}"
+        group: "{{ ansible_user }}"
+        mode: '0755'
+
+    - name: Copy devops.zip to app servers
+      copy:
+        src: /usr/src/sysops/devops.zip
+        dest: /tmp/devops.zip
+        mode: '0644'
+
+    - name: Unzip the archive
+      unarchive:
+        src: /tmp/devops.zip
+        dest: /opt/sysops/
+        owner: "{{ ansible_user }}"
+        group: "{{ ansible_user }}"
+        mode: '0755'
+        remote_src: yes
+      register: unarchive_result
+      failed_when: unarchive_result.failed and 'No such file or directory' not in unarchive_result.msg
