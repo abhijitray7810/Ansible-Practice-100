@@ -133,11 +133,11 @@ ansible-playbook -i inventory playbook.yml
   Please do not modify this file manually!
   ```
 
-````
+
 
 ---
 
-### ✅ Final note
+### Final note
 After saving these files, run:
 ```bash
 ansible-playbook -i inventory playbook.yml
