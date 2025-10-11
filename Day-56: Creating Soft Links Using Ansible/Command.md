@@ -1,4 +1,3 @@
-#!/bin/bash
 # Ansible Syntax Check Commands
 
 # Navigate to the ansible directory
