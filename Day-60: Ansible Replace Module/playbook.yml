@@ -1,0 +1,30 @@
+---
+- name: Update blog.txt on app server 1
+  hosts: stapp01
+  become: yes
+  tasks:
+    - name: Replace xFusionCorp with Nautilus in blog.txt
+      ansible.builtin.replace:
+        path: /opt/finance/blog.txt
+        regexp: 'xFusionCorp'
+        replace: 'Nautilus'
+
+- name: Update story.txt on app server 2
+  hosts: stapp02
+  become: yes
+  tasks:
+    - name: Replace Nautilus with KodeKloud in story.txt
+      ansible.builtin.replace:
+        path: /opt/finance/story.txt
+        regexp: 'Nautilus'
+        replace: 'KodeKloud'
+
+- name: Update media.txt on app server 3
+  hosts: stapp03
+  become: yes
+  tasks:
+    - name: Replace KodeKloud with xFusionCorp Industries in media.txt
+      ansible.builtin.replace:
+        path: /opt/finance/media.txt
+        regexp: 'KodeKloud'
+        replace: 'xFusionCorp Industries'
