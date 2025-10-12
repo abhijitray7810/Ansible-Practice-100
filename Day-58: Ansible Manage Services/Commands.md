@@ -1,3 +1,4 @@
 ## Run playbook
 ```
-ab=nsible-playbook -i inventory playbook.yml
+ansible-playbook -i inventory playbook.yml
+```
