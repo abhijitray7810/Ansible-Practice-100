@@ -1,0 +1,21 @@
+---
+- name: Install and configure httpd on app servers
+  hosts: all
+  become: yes
+  serial: 1
+  tasks:
+    - name: Install httpd package
+      yum:
+        name: httpd
+        state: present
+        update_cache: yes
+      register: install_result
+      until: install_result is succeeded
+      retries: 3
+      delay: 5
+
+    - name: Start and enable httpd service
+      service:
+        name: httpd
+        state: started
+        enabled: yes
