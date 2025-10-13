@@ -1,0 +1,33 @@
+---
+- name: Setup Apache web server on all app servers
+  hosts: all
+  gather_facts: yes
+  become: yes
+  tasks:
+    - name: Create facts.txt file with system architecture using blockinfile
+      blockinfile:
+        path: /root/facts.txt
+        create: yes
+        block: |
+          Ansible managed node architecture is {{ ansible_architecture }}
+
+    - name: Install httpd package
+      package:
+        name: httpd
+        state: present
+      retries: 3
+      delay: 5
+      register: httpd_install
+      until: httpd_install is succeeded
+
+    - name: Copy facts.txt to index.html
+      copy:
+        src: /root/facts.txt
+        dest: /var/www/html/index.html
+        remote_src: yes
+
+    - name: Start and enable httpd service
+      service:
+        name: httpd
+        state: started
+        enabled: yes
