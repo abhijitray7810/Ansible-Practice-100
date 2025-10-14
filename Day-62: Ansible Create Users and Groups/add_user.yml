@@ -1,0 +1,38 @@
+cat > add_users.yml << 'EOF'
+---
+- name: Add users and groups to app server 2
+  hosts: stapp02
+  become: yes
+  vars_files:
+    - data/users.yml
+  
+  tasks:
+    - name: Create admins group
+      group:
+        name: admins
+        state: present
+
+    - name: Create developers group
+      group:
+        name: developers
+        state: present
+
+    - name: Create admin users
+      user:
+        name: "{{ item }}"
+        groups: admins,wheel
+        append: yes
+        password: "{{ 'LQfKeWWxWD' | password_hash('sha512') }}"
+        state: present
+      loop: "{{ admins }}"
+
+    - name: Create developer users with custom home directory
+      user:
+        name: "{{ item }}"
+        groups: developers
+        append: yes
+        home: /var/www
+        password: "{{ 'TmPcZjtRQx' | password_hash('sha512') }}"
+        state: present
+      loop: "{{ developers }}"
+EOF
