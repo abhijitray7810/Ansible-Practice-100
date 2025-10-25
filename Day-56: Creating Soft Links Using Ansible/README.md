@@ -124,7 +124,7 @@ ansible -i inventory all -m ping
 # Solution: Playbook uses force: yes for symlinks
 # Rerun the playbook - it's idempotent
 ```
-
+ 
 ## 📖 Additional Resources
 
 - [Ansible File Module Documentation](https://docs.ansible.com/ansible/latest/collections/ansible/builtin/file_module.html)
