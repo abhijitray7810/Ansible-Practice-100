@@ -14,3 +14,4 @@ d. The user/group owner of /var/www/html/index.html file must be respective sudo
 
 
 Note: Validation will try to run the playbook using command ansible-playbook -i inventory playbook.yml so please make sure the playbook works this way without passing any extra arguments.
+ 
