@@ -1,6 +1,6 @@
 # Ansible ACL File Management Playbook
 
-## Overview
+## Overview 
 This playbook automates the creation of files with specific ACL (Access Control List) permissions across multiple app servers in the Stratos Data Center. All files are owned by root, with additional ACL permissions granted to specific users and groups.
 
 ## Directory Structure
