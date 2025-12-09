@@ -11,7 +11,7 @@ This README documents the Ansible inventory file configuration for App Server 2 
 ## Server Information
 - **Server Name:** stapp02
 - **Server Type:** App Server 2 in Stratos DC
-- **IP Address:** 172.16.238.11
+- **IP Address:** 172.16.238.11 
 - **Username:** steve
 - **Password:** Am3ric@
 
