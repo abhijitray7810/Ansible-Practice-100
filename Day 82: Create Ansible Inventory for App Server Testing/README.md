@@ -13,7 +13,7 @@ This README documents the Ansible inventory file configuration for App Server 2 
 - **Server Type:** App Server 2 in Stratos DC
 - **IP Address:** 172.16.238.11  
 - **Username:** steve
-- **Password:** Am3ric@
+- **Password:** Am3ric@ 
 
 ## Inventory Configuration
 The inventory file is configured in INI format with the following content:
